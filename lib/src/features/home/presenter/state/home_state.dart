@@ -1,6 +1,6 @@
 import 'package:sleepsounds/src/features/home/domain/models/categorie_model.dart';
 
-sealed class IHomeState {}
+abstract class IHomeState {}
 
 class SuccessHomeState extends IHomeState {
   List<CategorieModel> listCategories;

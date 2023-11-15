@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sleepsounds/src/features/categoryDetail/presenter/controllers/category_detail_controller.dart';
 import 'package:sleepsounds/src/features/home/data/home_datasource.dart';
 import 'package:sleepsounds/src/features/home/domain/home_repository.dart';
 import 'package:sleepsounds/src/features/home/presenter/controllers/home_controller.dart';
 import 'package:sleepsounds/src/features/home/presenter/state/home_state.dart';
+
+import '../../../categoryDetail/presenter/pages/category_detail_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -85,40 +88,65 @@ class HomePage extends StatelessWidget {
                                   crossAxisCount: 2,
                                   crossAxisSpacing: 16.0,
                                   mainAxisSpacing: 8,
+                                  childAspectRatio: 0.8,
                                 ),
                                 itemBuilder: (context, index) =>
                                     GestureDetector(
                                   onTap: () {
-                                    //
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            CategoryDetailPage(
+                                          categoryDetailController:
+                                              CategoryDetailController(
+                                            categoryModel: (homeController.state
+                                                    .value as SuccessHomeState)
+                                                .listCategories[index],
+                                          ),
+                                        ),
+                                      ),
+                                    );
                                   },
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Image.network(
-                                          'https://www.zup.com.br/wp-content/uploads/2021/03/5ce2fde702ef93c1e994d987_flutter.png',
+                                  child: Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            child: Image.network(
+                                              (homeController.state.value
+                                                      as SuccessHomeState)
+                                                  .listCategories[index]
+                                                  .image,
+                                              fit: BoxFit.fitHeight,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        (homeController.state.value
-                                                as SuccessHomeState)
-                                            .listCategories[index]
-                                            .name,
-                                        style: const TextStyle(
-                                          fontSize: 22,
-                                          color: Colors.white,
+                                        Text(
+                                          (homeController.state.value
+                                                  as SuccessHomeState)
+                                              .listCategories[index]
+                                              .name,
+                                          style: const TextStyle(
+                                            fontSize: 22,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "${(homeController.state.value as SuccessHomeState).listCategories[index].sounds.length} Songs - ${(homeController.state.value as SuccessHomeState).listCategories[index].category}",
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.grey,
-                                        ),
-                                      )
-                                    ],
+                                        Text(
+                                          "${(homeController.state.value as SuccessHomeState).listCategories[index].sounds.length} Songs - ${(homeController.state.value as SuccessHomeState).listCategories[index].category}",
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

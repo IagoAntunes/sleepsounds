@@ -46,7 +46,7 @@ dependencies:
   cloud_firestore: ^4.13.1
   uuid: ^3.0.7
   get_it: ^7.6.4
-
+  audioplayers: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,6 +72,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/intro_1.png
+    - assets/mp3/sound_1.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
