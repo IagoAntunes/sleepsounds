@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1083541619836",
+    "project_id": "sleepsounds-2584a",
+    "storage_bucket": "sleepsounds-2584a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083541619836:android:10a212ce0b3591962fb5f9",
+        "android_client_info": {
+          "package_name": "com.example.sleepsounds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083541619836-f8akfkajpmmm4sasgnf8o95d2rqe19c0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWhZoIuPqjDtC5hYvmDaK_6mGxbNmNlZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083541619836-f8akfkajpmmm4sasgnf8o95d2rqe19c0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
